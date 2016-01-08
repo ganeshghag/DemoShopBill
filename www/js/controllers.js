@@ -15,6 +15,15 @@ angular.module('starter.controllers', [])
         $scope.popover.show($event);
     }
 
+    $scope.onRoundOffAmount = function() {
+         $scope.cartTotal =  Math.round($scope.cartTotal);
+    }
+
+    $scope.onClearCart = function() {
+        $scope.items = [];
+        $scope.cartTotal =  0;
+    }
+
     $scope.onFruitImageClick = function(name, amount) {
     
     curr = new Object();
@@ -75,7 +84,7 @@ angular.module('starter.controllers', [])
     }
 
 
-     var template = '<ion-popover-view class="contendheight"><ion-header-bar> <h1 class="title">Khata Bill</h1> </ion-header-bar> <ion-content> <img src="img/qrcode.png" width="100%"/> </ion-content></ion-popover-view>';
+     var template = '<ion-popover-view class="contendheight"><ion-header-bar> <h1 class="title">e-Khata Bill</h1> </ion-header-bar> <ion-content> <img src="img/qrcode.png" width="100%"/> </ion-content></ion-popover-view>';
 
       $scope.popover = $ionicPopover.fromTemplate(template, {
         scope: $scope

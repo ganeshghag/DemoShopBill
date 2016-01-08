@@ -11,13 +11,13 @@
 	  <div class="col col-20"><img src="img/garlics.jpg" width="100%" ng-click="onFruitImageClick('Garlic',30)"/></div>
 	  <div class="col col-20"><img src="img/masalas.jpg" width="100%" ng-click="onFruitImageClick('Masalas',30)"/></div>
 	  <div class="col col-20"><img src="img/oil.jpg" width="100%" ng-click="onFruitImageClick('Oil',70)"/></div>
-	  <div class="col col-20"><img src="img/rice.jpg" width="100%" ng-click="onFruitImageClick('Rice',50)"/></div>
-	  <div class="col col-20"><img src="img/salt.jpg" width="100%" ng-click="onFruitImageClick('Salt',60)"/></div>
+	  <div class="col col-20"><img src="img/rice.jpg" width="100%" ng-click="onFruitImageClick('Rice',50.49)"/></div>
+	  <div class="col col-20"><img src="img/salt.jpg" width="100%" ng-click="onFruitImageClick('Salt',60.51)"/></div>
 	</div>
 
 <hr>
-My Cart
 
+My Cart
 <ion-list>
   <ion-item ng-repeat="item in items">
     {{item.name}} - {{item.amount}}
@@ -28,6 +28,23 @@ My Cart
 <button class="button button-block button-positive" ng-click="onTotalClick($event)">
   TOTAL Rs: {{cartTotal}}
 </button>
+
+
+
+<div class="row">
+
+   <div class="col text-left">
+	<button class="button button-clear button-positive" ng-click="onRoundOffAmount();">
+	  Round Off Amount
+	</button>
+   </div>
+
+   <div class="col text-right">
+	<button class="button button-clear button-positive" ng-click="onClearCart();">
+	  Clear Cart
+	</button>
+   </div>
+</div>
 
   </ion-content>
 </ion-view>

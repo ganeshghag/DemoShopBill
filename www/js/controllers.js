@@ -64,13 +64,14 @@ angular.module('starter.controllers', [])
         $scope.showEntryFields = true;
     }
 
-    $scope.onAddEntry = function(mydate, quantity, details) {
+    $scope.onAddEntry = function(newentry) {
 
         entry = new Object();
-        entry.mydate = mydate;
-        entry.quantity = quantity;
-        entry.details = details;
-        entry.amount = entry.quantity * 7;
+        var todays = "" + new Date();
+        entry.mydate = todays.substr(0,24) + " IST";
+        entry.quantity = parseInt(newentry.quantity);
+        entry.details = "Normal delivery within 3 days";
+        entry.amount = parseFloat(newentry.amount);
 
         $scope.entries.push(entry);
 
@@ -93,6 +94,16 @@ angular.module('starter.controllers', [])
     $scope.onTotalKhata = function($event) {
         $scope.popover.show($event);
     }
+
+    $scope.onRoundOffAmount = function() {
+         $scope.khataTotal =  Math.round($scope.khataTotal);
+    }
+
+    $scope.onClear = function() {
+        $scope.entries = [];
+        $scope.khataTotal =  0;
+    }
+
 
 
 });

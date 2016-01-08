@@ -6,9 +6,13 @@
 
   <div class="item item-input-inset" ng-show="showEntryFields">
     <label class="item-input-wrapper">
-      <input type="text" placeholder="10">
+      <input type="text" placeholder="Quantity" ng-model="newentry.quantity">
     </label>
-    <button class="button button-small" ng-click="onAddEntry('07 Jan 2015 07:42 pm','10','Some Note')">
+	&nbsp;&nbsp;&nbsp;
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Amount"  ng-model="newentry.amount">
+    </label>
+    <button class="button button-small" ng-click="onAddEntry(newentry)">
       Submit
     </button>
   </div>
@@ -26,6 +30,21 @@
 <button class="button button-block button-positive" ng-click="onTotalKhata($event)">
   TOTAL Rs: {{khataTotal}}
 </button>
+
+<div class="row">
+   <div class="col text-left">
+	<button class="button button-clear button-positive" ng-click="onRoundOffAmount();">
+	  Round Off Amount
+	</button>
+   </div>
+
+   <div class="col text-right">
+	<button class="button button-clear button-positive" ng-click="onClear();">
+	  Clear Cart
+	</button>
+   </div>
+</div>
+
 
   </ion-content>
 </ion-view>

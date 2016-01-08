@@ -1,9 +1,31 @@
-<ion-view view-title="Account">
+<ion-view view-title="e-Khata">
   <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
+  <button class="button button-block button-positive" ng-click="onShowEntry()">
+  Add Entry
+</button>
+
+  <div class="item item-input-inset" ng-show="showEntryFields">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="10">
+    </label>
+    <button class="button button-small" ng-click="onAddEntry('07 Jan 2015 07:42 pm','10','Some Note')">
+      Submit
+    </button>
+  </div>
+
+<hr>
+ <ion-list>
+  <ion-item ng-repeat="entry in entries">
+  <h3 style="color:red; size:9;">{{entry.mydate}}</h3>
+  <h4 style="color:blue; size:8">Qty: {{entry.quantity}} &nbsp;&nbsp;&nbsp;&nbsp; Amt: {{entry.amount}}</h4>
+  <h4>{{entry.details}}</h4>
+
+  </ion-item>
+</ion-list>
+
+<button class="button button-block button-positive" ng-click="onTotalKhata($event)">
+  TOTAL Rs: {{khataTotal}}
+</button>
+
   </ion-content>
 </ion-view>

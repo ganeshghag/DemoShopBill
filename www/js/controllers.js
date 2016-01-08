@@ -35,14 +35,6 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);
@@ -53,8 +45,45 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('AccountCtrl', function($scope, $ionicPopover) {
+
+    $scope.entries = [];
+    $scope.khataTotal = 0;
+    $scope.showEntryFields = false;
+
+    $scope.onShowEntry = function() {
+        $scope.showEntryFields = true;
+    }
+
+    $scope.onAddEntry = function(mydate, quantity, details) {
+
+        entry = new Object();
+        entry.mydate = mydate;
+        entry.quantity = quantity;
+        entry.details = details;
+        entry.amount = entry.quantity * 7;
+
+        $scope.entries.push(entry);
+
+        $scope.khataTotal = 0;
+        var arrayLength = $scope.entries.length;
+        for (var i = 0; i < arrayLength; i++) {
+            $scope.khataTotal = $scope.khataTotal + $scope.entries[i].amount;
+        }
+
+        $scope.showEntryFields = false;
+    }
+
+
+     var template = '<ion-popover-view class="contendheight"><ion-header-bar> <h1 class="title">Khata Bill</h1> </ion-header-bar> <ion-content> <img src="img/qrcode.png" width="100%"/> </ion-content></ion-popover-view>';
+
+      $scope.popover = $ionicPopover.fromTemplate(template, {
+        scope: $scope
+      });
+
+    $scope.onTotalKhata = function($event) {
+        $scope.popover.show($event);
+    }
+
+
 });

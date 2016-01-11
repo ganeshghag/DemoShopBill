@@ -5,7 +5,7 @@ angular.module('starter.controllers', [])
     $scope.items = [];
     $scope.cartTotal = 0;
 
-     var template = '<ion-popover-view class="contendheight"><ion-header-bar> <h1 class="title">Shopping Cart Bill</h1> </ion-header-bar> <ion-content> <img src="img/qrcode.png" width="100%"/> </ion-content></ion-popover-view>';
+     var template = '<ion-popover-view class="contendheight"><ion-header-bar> <h1 class="title">Shopping Cart Bill</h1> </ion-header-bar> <ion-content> <img src="img/Kirana.png" width="100%"/> </ion-content></ion-popover-view>';
 
       $scope.popover = $ionicPopover.fromTemplate(template, {
         scope: $scope
@@ -70,7 +70,7 @@ angular.module('starter.controllers', [])
         var todays = "" + new Date();
         entry.mydate = todays.substr(0,24) + " IST";
         entry.quantity = parseInt(newentry.quantity);
-        entry.details = "Normal delivery within 3 days";
+        entry.details = "Normal delivery, within 3 days";
         entry.amount = parseFloat(newentry.amount);
 
         $scope.entries.push(entry);
@@ -85,7 +85,7 @@ angular.module('starter.controllers', [])
     }
 
 
-     var template = '<ion-popover-view class="contendheight"><ion-header-bar> <h1 class="title">e-Khata Bill</h1> </ion-header-bar> <ion-content> <img src="img/qrcode.png" width="100%"/> </ion-content></ion-popover-view>';
+     var template = '<ion-popover-view class="contendheight"><ion-header-bar> <h1 class="title">Bill: Ravi Kumar Singh</h1> </ion-header-bar> <ion-content> <img src="img/Dhobi.png" width="100%"/> </ion-content></ion-popover-view>';
 
       $scope.popover = $ionicPopover.fromTemplate(template, {
         scope: $scope

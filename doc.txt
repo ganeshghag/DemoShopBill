@@ -1,0 +1,4 @@
+http://stackoverflow.com/questions/7196798/javascript-api-for-generating-qr-codes
+
+https://github.com/amanuel/JS-HTML5-QRCode-Generator
+http://davidshimjs.github.io/qrcodejs/

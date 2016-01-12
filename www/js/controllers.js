@@ -64,6 +64,33 @@ angular.module('starter.controllers', [])
         $scope.showEntryFields = true;
     }
 
+    $scope.onInitView = function() {
+        entry = new Object();
+        var todays = "" + new Date();
+        entry.mydate = todays.substr(0,24) + " IST";
+        entry.quantity = parseInt(20);
+        entry.details = "Normal delivery, within 3 days";
+        entry.amount = parseFloat(200);
+
+        $scope.entries.push(entry);
+
+        entry = new Object();
+        var todays = "" + new Date();
+        entry.mydate = todays.substr(0,24) + " IST";
+        entry.quantity = parseInt(10);
+        entry.details = "Express delivery, next day";
+        entry.amount = parseFloat(153);
+
+        $scope.entries.push(entry);
+
+        $scope.khataTotal = 0;
+        var arrayLength = $scope.entries.length;
+        for (var i = 0; i < arrayLength; i++) {
+            $scope.khataTotal = $scope.khataTotal + $scope.entries[i].amount;
+        }
+
+    }
+
     $scope.onAddEntry = function(newentry) {
 
         entry = new Object();

@@ -44,10 +44,41 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
+
+ new Chartist.Bar('.ct-chart', {
+  labels: ['June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  series: [
+    [200, 300, 250, 350, 200, 500, 150],
+    [400, 500, 800, 200, 600, 300, 510],
+    [400, 300, 600, 400, 500, 200, 310]
+  ]
+}, {
+  seriesBarDistance: 20,
+  axisX: {
+    showGrid: false
+  },
+  height: "200"
+
+});
+
+
+
+ new Chartist.Bar('.ct-chart1', {
+  labels: ['Mobile', 'Kirana', 'Restaurant', 'Laundry'],
+  series: [
+    [6500, 7500, 10500, 4500]
+  ]
+}, {
+  seriesBarDistance: 20,
+  axisX: {
+    showGrid: false
+  },
+  height: "200"
+
+});
+
+
+
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
@@ -112,7 +143,7 @@ angular.module('starter.controllers', [])
     }
 
 
-     var template = '<ion-popover-view class="contendheight"><ion-header-bar> <h1 class="title">Bill: Ravi Kumar Singh</h1> </ion-header-bar> <ion-content> <img src="img/Dhobi.png" width="100%"/> </ion-content></ion-popover-view>';
+     var template = '<ion-popover-view class="contendheight"><ion-header-bar> <h1 class="title">Bill: Yash Mishra</h1> </ion-header-bar> <ion-content> <img src="img/Dhobi.png" width="100%"/> </ion-content></ion-popover-view>';
 
       $scope.popover = $ionicPopover.fromTemplate(template, {
         scope: $scope
